@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wer hat Recht!</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fef8e6;
+      color: #333;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    .counter {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .count {
+      font-size: 3rem;
+      margin: 1rem 0;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #ffca28;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #ffc107;
+    }
+    #reset {
+      background-color: #e57373;
+      color: white;
+    }
+    .icon {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐥 Wer hat Recht! 🐼</h1>
+
+  <div class="counter">
+    <img src="civciv.png" alt="Civciv Icon" class="icon">
+    <h2>Civciv</h2>
+    <div id="civcivCount" class="count">0</div>
+    <button onclick="increment('civciv')">Civciv hat Recht!</button>
+  </div>
+
+  <div class="counter">
+    <img src="panda.png" alt="Panda Icon" class="icon">
+    <h2>Panda</h2>
+    <div id="pandaCount" class="count">0</div>
+    <button onclick="increment('panda')">Bärchen hat Recht!</button>
+  </div>
+
+  <button id="reset" onclick="resetCounters()">Reset</button>
+
+  <script>
+    function loadCount(name) {
+      return parseInt(localStorage.getItem(name) || '0');
+    }
+
+    function saveCount(name, value) {
+      localStorage.setItem(name, value);
+    }
+
+    function updateDisplay() {
+      document.getElementById('civcivCount').textContent = loadCount('civciv');
+      document.getElementById('pandaCount').textContent = loadCount('panda');
+    }
+
+    function increment(name) {
+      let current = loadCount(name);
+      current += 1;
+      saveCount(name, current);
+      updateDisplay();
+    }
+
+    function resetCounters() {
+      if (confirm("Bist du sicher, dass du beide Zähler zurücksetzen willst?")) {
+        saveCount('civciv', 0);
+        saveCount('panda', 0);
+        updateDisplay();
+      }
+    }
+
+    updateDisplay();
+  </script>
+</body>
+</html>

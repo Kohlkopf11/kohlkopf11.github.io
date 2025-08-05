@@ -1,0 +1,16 @@
+{
+  "name": "Wer hat Recht!",
+  "short_name": "Recht App",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fef8e6",
+  "description": "Civciv 🐥 oder Panda 🐼 – wer hat Recht?",
+  "icons": [
+    {
+      "src": "civciv.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffca28"
+}
