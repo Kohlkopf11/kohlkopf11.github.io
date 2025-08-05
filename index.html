@@ -82,8 +82,8 @@
     }
 
     function updateDisplay() {
-      document.getElementById('civcivCount').textContent = loadCount('civciv');
-      document.getElementById('pandaCount').textContent = loadCount('panda');
+      document.getElementById('civcivCount').textContent = loadCount('Civciv hat Recht!');
+      document.getElementById('pandaCount').textContent = loadCount('Bärchen hat Recht!');
     }
 
     function increment(name) {
@@ -95,13 +95,5 @@
 
     function resetCounters() {
       if (confirm("Bist du sicher, dass du beide Zähler zurücksetzen willst?")) {
-        saveCount('civciv', 0);
-        saveCount('panda', 0);
-        updateDisplay();
-      }
-    }
-
-    updateDisplay();
-  </script>
-</body>
-</html>
+        saveCount('Civciv hat Recht!', 0);
+        saveCou
